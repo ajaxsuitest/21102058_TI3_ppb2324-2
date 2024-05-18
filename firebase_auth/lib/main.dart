@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:praktikum9/ui/home_screen.dart';
+import 'package:praktikum9/ui/login.dart';
 import 'firebase_options.dart';
 import 'package:praktikum9/ui/splash.dart';
 import 'package:praktikum9/utils/routes.dart';
@@ -26,11 +29,26 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => RegisterCubit())
       ],
       child: MaterialApp(
-        title: "Praktikum 6",
+        title: "Praktikum 9",
         debugShowCheckedModeBanner: false,
         navigatorKey: NAV_KEY,
         onGenerateRoute: generateRoute,
-        home: SplashScreen(),
+        home: StreamBuilder<User?>(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            } else if (snapshot.hasData) {
+              return HomeScreen();
+            } else if (snapshot.hasError) {
+              return const Center(
+                child: Text('Something went wrong'),
+              );
+            } else {
+              return const LoginScreen();
+            }
+          },
+        ),
       ),
     );
   }
