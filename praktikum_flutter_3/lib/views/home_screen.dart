@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:praktikum_3/bloc/contact_cubit.dart';
-import 'package:praktikum_3/views/add_contact_screen.dart';
+import 'package:praktikum3/bloc/contact_cubic.dart';
+import 'package:praktikum3/views/add_contact_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +56,10 @@ class HomeScreen extends StatelessWidget {
           } else if (state is ContactLoading) {
             return const Center(child: CircularProgressIndicator());
           }
-          return Center(
+          return const Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Icon(Icons.group_outlined),
                 Text('Your contact is empty'),
               ],

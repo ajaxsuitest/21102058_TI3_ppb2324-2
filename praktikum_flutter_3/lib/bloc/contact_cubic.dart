@@ -4,6 +4,8 @@ import 'package:equatable/equatable.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 import '../../model/user.dart';
+import 'package:flutter/cupertino.dart';
+
 part 'contact_state.dart';
 
 class ContactCubit extends Cubit<ContactState> {
