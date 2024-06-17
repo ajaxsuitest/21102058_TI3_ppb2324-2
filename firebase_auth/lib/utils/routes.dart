@@ -8,22 +8,22 @@ MaterialPageRoute _pageRoute(
     MaterialPageRoute(builder: (_) => body, settings: settings);
 
 Route? generateRoute(RouteSettings settings) {
-  Route? _route;
-  final _args = settings.arguments;
+  Route? route;
   switch (settings.name) {
     case rLogin:
-      _route = _pageRoute(body: LoginScreen(), settings: settings);
+      route = _pageRoute(body: const LoginScreen(), settings: settings);
       break;
     case rRegister:
-      _route = _pageRoute(body: RegisterScreen(), settings: settings);
+      route = _pageRoute(body: const RegisterScreen(), settings: settings);
       break;
     case rHome:
-      _route = _pageRoute(body: HomeScreen(), settings: settings);
+      route = _pageRoute(body: const HomeScreen(), settings: settings);
       break;
   }
-  return _route;
+  return route;
 }
 
+// ignore: non_constant_identifier_names
 final NAV_KEY = GlobalKey<NavigatorState>();
 const String rLogin = '/login';
 const String rRegister = '/register';

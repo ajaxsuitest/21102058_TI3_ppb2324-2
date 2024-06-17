@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:praktikum9/ui/home_screen.dart';
 import 'package:praktikum9/ui/login.dart';
 import 'firebase_options.dart';
+// ignore: unused_import
 import 'package:praktikum9/ui/splash.dart';
 import 'package:praktikum9/utils/routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +20,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const CircularProgressIndicator();
             } else if (snapshot.hasData) {
-              return HomeScreen();
+              return const HomeScreen();
             } else if (snapshot.hasError) {
               return const Center(
                 child: Text('Something went wrong'),

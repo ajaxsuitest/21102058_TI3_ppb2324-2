@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
+// ignore: depend_on_referenced_packages, unnecessary_import
 import 'package:meta/meta.dart';
 import '../../repositories/auth_repo.dart';
 
@@ -18,7 +20,9 @@ class RegisterCubit extends Cubit<RegisterState> {
 
       emit(RegisterSuccess('Berhasil!'));
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
       emit(RegisterFailure(e.toString()));
     }
   }
