@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:praktikum_flutter_5/second_page.dart';
+import 'second_page.dart';
 
 class HomePage extends StatelessWidget {
+  // ignore: use_super_parameters
   const HomePage({Key? key}) : super(key: key);
+  // const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +21,8 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SecondPage(
-                      data: 'ini adalah data kiriman dari home page',
-                    ),
+                    builder: (context) =>
+                        const SecondPage(data: 'Data dari Home Page'),
                   ),
                 );
               },
@@ -29,7 +30,8 @@ class HomePage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/secondpage');
+                Navigator.pushNamed(context, '/second_page',
+                    arguments: 'Menggunakan route');
               },
               child: const Text('Menuju halaman kedua dengan route'),
             ),

@@ -1,4 +1,4 @@
-# praktikum_flutter_5
+# praktikum5
 
 A new Flutter project.
 
